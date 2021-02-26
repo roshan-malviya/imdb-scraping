@@ -3,12 +3,13 @@ from pprint import pprint
 import json
 
 def movie_list_by_year(b):
-	c=[]
+	sorted_year=[]
 
 	for i in range (len(b)):
-		c.append(b[i]['year'])
+		if i not in sorted_year:
+			sorted_year.append(b[i]['year'])
 
-	sorted_year=list(set(c))
+	# sorted_year=list(set(c))
 
 	sorted_movie_list=[]
 
@@ -33,7 +34,7 @@ if __name__ == "__main__":
 	
 	c=(movie_list_by_year(b))
 	# l.append(c)
-	with open ('task2.json','w') as w:
+	with open ('task22.json','w') as w:
 		json.dump(c,w,indent=4)
 		w.close()
 # pprint(movie_list_by_year(b))
